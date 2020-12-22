@@ -18,8 +18,8 @@ namespace Aplicacao_Kolping.Models
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public int Cep { get; set; }
-        public ICollection<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
-        public ICollection<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
+        public IList<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
+        public IList<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
 
         public Alunos()
         {

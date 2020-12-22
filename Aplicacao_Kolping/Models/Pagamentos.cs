@@ -7,21 +7,19 @@ namespace Aplicacao_Kolping.Models
 {
     public class Pagamentos
     {
-        public int IdPagamento { get; set; }
+        public int Id { get; set; }
         public DateTime Data { get; set; }
         public double Valor { get; set; }
-        public Pagamentos Pagamento { get; set; }
 
         public Pagamentos()
         {
         }
 
-        public Pagamentos(int idPagamento, DateTime data, double valor, Pagamentos pagamento)
+        public Pagamentos(int id, DateTime data, double valor, Pagamentos pagamento)
         {
-            IdPagamento = idPagamento;
+            Id = id;
             Data = data;
             Valor = valor;
-            Pagamento = pagamento;
         }
     }
 

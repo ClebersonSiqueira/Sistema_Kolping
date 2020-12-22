@@ -11,7 +11,7 @@ namespace Aplicacao_Kolping.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public double Preco { get; set; }
-        public ICollection<Alunos> Alunos { get; set; } = new List<Alunos>();
+        public IList<Alunos> Alunos { get; set; } = new List<Alunos>();
 
         public Modalidades()
         {
