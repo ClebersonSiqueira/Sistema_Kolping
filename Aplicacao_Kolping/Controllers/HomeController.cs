@@ -17,14 +17,16 @@ namespace Aplicacao_Kolping.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Kolping São Lucas";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Em casos de erros, favor entrar em contato pelo whatsapp no numero";
+            ViewData["ContatoTelefone"] = "011 9 5950 0263";
+            ViewData["ContatoNome"] = "Cleberson Siqueira";
 
             return View();
         }

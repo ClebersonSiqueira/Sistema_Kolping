@@ -1,6 +1,7 @@
 using System;
 
 namespace Aplicacao_Kolping.Models
+
 {
     public class ErrorViewModel
     {
