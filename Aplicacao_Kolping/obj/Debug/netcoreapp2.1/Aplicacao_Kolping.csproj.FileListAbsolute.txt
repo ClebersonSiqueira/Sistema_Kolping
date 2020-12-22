@@ -33,5 +33,11 @@ C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netc
 C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.pdb
 C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.genruntimeconfig.cache
 C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.csproj.CopyComplete
-C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.csproj.CoreCompileInputs.cache
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\bin\Debug\netcoreapp2.1\Properties\serviceDependencies.json
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\bin\Debug\netcoreapp2.1\Properties\serviceDependencies.local.json
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Modalidades\Create.cshtml.g.cs
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Modalidades\Delete.cshtml.g.cs
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Modalidades\Details.cshtml.g.cs
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Modalidades\Edit.cshtml.g.cs
 C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Modalidades\Index.cshtml.g.cs
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.csproj.CoreCompileInputs.cache
