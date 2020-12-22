@@ -38,14 +38,18 @@ namespace Aplicacao_Kolping
 
             services.AddDbContext<Aplicacao_KolpingContext>(options =>
                     options.UseMySql(Configuration.GetConnectionString("Aplicacao_KolpingContext"), builder => builder.MigrationsAssembly("Aplicacao_Kolping")));
+
+            services.AddScoped<SeedingService>();
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+               seedingService.Seed();
             }
             else
             {
