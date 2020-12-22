@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Aplicacao_Kolping.Models;
 
 namespace Aplicacao_Kolping.Data
@@ -14,6 +10,10 @@ namespace Aplicacao_Kolping.Data
         {
         }
 
-        public DbSet<Aplicacao_Kolping.Models.Modalidades> Modalidades { get; set; }
+        public DbSet<Modalidades> Modalidades { get; set; }
+        public DbSet<Alunos> Alunos { get; set; }
+
+        public DbSet<Pagamentos> Pagamentos { get; set; }
+
     }
 }

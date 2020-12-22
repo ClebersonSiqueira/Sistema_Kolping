@@ -18,6 +18,43 @@ namespace Aplicacao_Kolping.Models
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public int Cep { get; set; }
+        public ICollection<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
+        public ICollection<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
 
+        public Alunos()
+        {
+        }
+
+        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numeroCasa, string bairro, string cidade, int cep)
+        {
+            ID = iD;
+            Nome = nome;
+            Documento = documento;
+            Nascimento = nascimento;
+            Telefone = telefone;
+            Email = email;
+            Rua = rua;
+            NumeroCasa = numeroCasa;
+            Bairro = bairro;
+            Cidade = cidade;
+            Cep = cep;
+        }
+
+        public void AddPagamento(Pagamentos pg)
+        {
+            Pagamentos.Add(pg);
+        }
+        public void RemovePagamento(Pagamentos pg)
+        {
+            Pagamentos.Remove(pg);
+        }
+        public void AddModalidade(Modalidades md)
+        {
+            Modalidades.Add(md);
+        }
+        public void removeModalidade(Modalidades md)
+        {
+            Modalidades.Remove(md);
+        }
     }
 }
