@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Aplicacao_Kolping.Models.Alunos>
+
+@{
+    ViewData["Title"] = "Alunos";
+}
+
+<h2>Alunos</h2>
+
+<p>
+    <a asp-action="NovoAluno" class="btn btn-default">Novo Aluno</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr class="success">
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Documento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nascimento)
+                </td>
+                <td>
+                    <a asp--action="Editar" asp-route-id="@item.ID">Editar</a>
+                    <a asp--action="Detalhes" asp-route-id="@item.ID">Detalhes</a>
+                    <a asp--action="Deletar" asp-route-id="@item.ID">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

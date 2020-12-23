@@ -14,10 +14,10 @@ namespace Aplicacao_Kolping.Models
         public int Telefone { get; set; }
         public string Email { get; set; }
         public string Rua { get; set; }
-        public string NumeroCasa { get; set; }
+        public string Numero { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
-        public int Cep { get; set; }
+        public string Cep { get; set; }
         public IList<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
         public IList<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
 
@@ -25,7 +25,7 @@ namespace Aplicacao_Kolping.Models
         {
         }
 
-        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numeroCasa, string bairro, string cidade, int cep)
+        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numero, string bairro, string cidade, string cep)
         {
             ID = iD;
             Nome = nome;
@@ -34,7 +34,7 @@ namespace Aplicacao_Kolping.Models
             Telefone = telefone;
             Email = email;
             Rua = rua;
-            NumeroCasa = numeroCasa;
+            Numero = numero;
             Bairro = bairro;
             Cidade = cidade;
             Cep = cep;

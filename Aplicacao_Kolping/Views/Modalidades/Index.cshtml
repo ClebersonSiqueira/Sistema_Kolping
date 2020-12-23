@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<Aplicacao_Kolping.Models.Modalidades>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Modalidades";
 }
 
-<h2>Index</h2>
+<h2>Modalidades</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-default">Nova Modalidade</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
+        <tr class="success">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -22,20 +22,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Preco)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preco)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Detalhes</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Deletar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

@@ -41,3 +41,5 @@ C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netc
 C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Modalidades\Edit.cshtml.g.cs
 C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Modalidades\Index.cshtml.g.cs
 C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.csproj.CoreCompileInputs.cache
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Alunos\Index.cshtml.g.cs
+C:\Users\Cleberson\Desktop\C#\Aplicacao_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Alunos\NovoAluno.cshtml.g.cs

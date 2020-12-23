@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Aplicacao_Kolping.Data;
+using Aplicacao_Kolping.Services;
 
 namespace Aplicacao_Kolping
 {
@@ -40,6 +41,7 @@ namespace Aplicacao_Kolping
                     options.UseMySql(Configuration.GetConnectionString("Aplicacao_KolpingContext"), builder => builder.MigrationsAssembly("Aplicacao_Kolping")));
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<AlunoService>();
         
         }
 

@@ -8,7 +8,7 @@ namespace Aplicacao_Kolping.Data
 {
     public class SeedingService
     {
-        private Aplicacao_KolpingContext _context;
+        public Aplicacao_KolpingContext _context;
 
         public SeedingService(Aplicacao_KolpingContext context)
         {
