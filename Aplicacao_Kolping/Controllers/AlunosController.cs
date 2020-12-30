@@ -38,5 +38,19 @@ namespace Aplicacao_Kolping.Controllers
             _AlunoService.Insert(aluno);
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Deletar(int? ID)
+        {
+            if(ID == null)
+            {
+                return NotFound();
+            }
+            var obj = _AlunoService.FindById(ID.Value);
+            if(obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
     }
 }

@@ -25,6 +25,18 @@ namespace Aplicacao_Kolping.Services
             _context.Add(obj);
             _context.SaveChanges();
         }
+        
+        public Alunos FindById(int id)
+        {
+            return _context.Alunos.FirstOrDefault(obj => obj.ID == id);
+        }
+
+        public void Remove(int id)
+        {
+            var obj = _context.Alunos.Find(id);
+            _context.Alunos.Remove(obj);
+            _context.SaveChanges();
+        }
 
     }
 }
