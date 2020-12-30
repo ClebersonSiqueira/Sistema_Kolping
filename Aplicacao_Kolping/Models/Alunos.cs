@@ -18,6 +18,8 @@ namespace Aplicacao_Kolping.Models
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public string Cep { get; set; }
+        public DateTime DiadePagamento { get; set; }
+        public int ModalidadeId { get; set; }
         public IList<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
         public IList<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
 
@@ -25,7 +27,7 @@ namespace Aplicacao_Kolping.Models
         {
         }
 
-        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numero, string bairro, string cidade, string cep)
+        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numero, string bairro, string cidade, string cep, DateTime diaDePagamaneto)
         {
             ID = iD;
             Nome = nome;
@@ -38,6 +40,7 @@ namespace Aplicacao_Kolping.Models
             Bairro = bairro;
             Cidade = cidade;
             Cep = cep;
+            DiadePagamento = diaDePagamaneto;
         }
 
         public void AddPagamento(Pagamentos pg)

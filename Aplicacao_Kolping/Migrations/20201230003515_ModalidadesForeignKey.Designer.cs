@@ -3,14 +3,16 @@ using System;
 using Aplicacao_Kolping.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Aplicacao_Kolping.Migrations
 {
     [DbContext(typeof(Aplicacao_KolpingContext))]
-    partial class Aplicacao_KolpingContextModelSnapshot : ModelSnapshot
+    [Migration("20201230003515_ModalidadesForeignKey")]
+    partial class ModalidadesForeignKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,15 +30,13 @@ namespace Aplicacao_Kolping.Migrations
 
                     b.Property<string>("Cidade");
 
-                    b.Property<DateTime>("DiadePagamento");
-
                     b.Property<string>("Documento");
 
                     b.Property<string>("Email");
 
                     b.Property<int>("ModalidadeId");
 
-                    b.Property<int?>("ModalidadesId");
+                    b.Property<int?>("ModalidadesID");
 
                     b.Property<DateTime>("Nascimento");
 
@@ -50,14 +50,14 @@ namespace Aplicacao_Kolping.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ModalidadesId");
+                    b.HasIndex("ModalidadesID");
 
                     b.ToTable("Alunos");
                 });
 
             modelBuilder.Entity("Aplicacao_Kolping.Models.Modalidades", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
                     b.Property<int?>("AlunosID");
@@ -66,7 +66,7 @@ namespace Aplicacao_Kolping.Migrations
 
                     b.Property<double>("Preco");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.HasIndex("AlunosID");
 
@@ -99,7 +99,7 @@ namespace Aplicacao_Kolping.Migrations
                 {
                     b.HasOne("Aplicacao_Kolping.Models.Modalidades")
                         .WithMany("Alunos")
-                        .HasForeignKey("ModalidadesId");
+                        .HasForeignKey("ModalidadesID");
                 });
 
             modelBuilder.Entity("Aplicacao_Kolping.Models.Modalidades", b =>

@@ -34,7 +34,7 @@ namespace Aplicacao_Kolping.Controllers
             }
 
             var modalidades = await _context.Modalidades
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (modalidades == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace Aplicacao_Kolping.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Preco")] Modalidades modalidades)
         {
-            if (id != modalidades.ID)
+            if (id != modalidades.Id)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace Aplicacao_Kolping.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ModalidadesExists(modalidades.ID))
+                    if (!ModalidadesExists(modalidades.Id))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace Aplicacao_Kolping.Controllers
             }
 
             var modalidades = await _context.Modalidades
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (modalidades == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace Aplicacao_Kolping.Controllers
 
         private bool ModalidadesExists(int id)
         {
-            return _context.Modalidades.Any(e => e.ID == id);
+            return _context.Modalidades.Any(e => e.Id == id);
         }
     }
 }

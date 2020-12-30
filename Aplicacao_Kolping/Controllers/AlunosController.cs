@@ -11,10 +11,12 @@ namespace Aplicacao_Kolping.Controllers
     public class AlunosController : Controller
     {
         private readonly AlunoService _AlunoService;
+        private readonly ModalidadesService _ModalidadesService;
 
-        public AlunosController(AlunoService alunoService)
+        public AlunosController(AlunoService alunoService, ModalidadesService modalidadesServices)
         {
             _AlunoService = alunoService;
+            _ModalidadesService = modalidadesServices;
         }
 
         public IActionResult Index()
@@ -25,7 +27,9 @@ namespace Aplicacao_Kolping.Controllers
 
         public IActionResult NovoAluno()
         {
-            return View();
+            var modalidades = _ModalidadesService.FindAll();
+            var viewModel = new AlunosFormViewModel { Modalidades = modalidades };
+            return View(viewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

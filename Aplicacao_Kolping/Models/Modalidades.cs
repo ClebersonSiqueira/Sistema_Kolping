@@ -8,7 +8,7 @@ namespace Aplicacao_Kolping.Models
 {
     public class Modalidades
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public double Preco { get; set; }
         public IList<Alunos> Alunos { get; set; } = new List<Alunos>();
@@ -19,7 +19,7 @@ namespace Aplicacao_Kolping.Models
 
         public Modalidades(int iD, string name, double preco)
         {
-            ID = iD;
+            Id = iD;
             Name = name;
             Preco = preco;
         }

@@ -67,7 +67,7 @@ using Aplicacao_Kolping.Models;
             WriteLiteral("\r\n<h2>Alunos</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(127, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "17a9738ad5c144849f152781dd65e256", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0cc84a4e4e5440e88af830a781682be", async() => {
                 BeginContext(177, 10, true);
                 WriteLiteral("Novo Aluno");
                 EndContext();
@@ -179,7 +179,7 @@ using Aplicacao_Kolping.Models;
             WriteLiteral("\r\n                </td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(1271, 58, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c4fce4dd5ad2461a97d17edf3cc4b1db", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b807f09caa294e7483cee9ef1194797f", async() => {
                 BeginContext(1319, 6, true);
                 WriteLiteral("Editar");
                 EndContext();
@@ -213,7 +213,7 @@ using Aplicacao_Kolping.Models;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1351, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "00cf815c5e944461b2e8a79aed6bd934", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e170da96352b4857919579d934ccce70", async() => {
                 BeginContext(1401, 8, true);
                 WriteLiteral("Detalhes");
                 EndContext();
@@ -247,7 +247,7 @@ using Aplicacao_Kolping.Models;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(1435, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "abe46b32f91d4a37a37bcf40be014346", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "04da57866d9b441680b84fa107e25ccf", async() => {
                 BeginContext(1484, 7, true);
                 WriteLiteral("Deletar");
                 EndContext();
