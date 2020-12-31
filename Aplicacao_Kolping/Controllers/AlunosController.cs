@@ -52,5 +52,18 @@ namespace Aplicacao_Kolping.Controllers
             }
             return View(obj);
         }
+        public IActionResult Detalhes(int? ID)
+        {
+            if (ID == null)
+            {
+                return NotFound();
+            }
+            var obj = _AlunoService.FindById(ID.Value);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
     }
 }

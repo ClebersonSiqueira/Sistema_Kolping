@@ -22,7 +22,7 @@ namespace Aplicacao_Kolping.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Modalidades>().HasMany<Alunos>(g => g.Alunos);
+            modelBuilder.Entity<Modalidades>().HasMany<Alunos>();
             modelBuilder.Entity<Alunos>().HasMany<Modalidades>(g => g.Modalidades);
             modelBuilder.Entity<Alunos>().HasMany<Pagamentos>();
         }

@@ -11,7 +11,6 @@ namespace Aplicacao_Kolping.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public double Preco { get; set; }
-        public IList<Alunos> Alunos { get; set; } = new List<Alunos>();
 
         public Modalidades()
         {
@@ -24,14 +23,6 @@ namespace Aplicacao_Kolping.Models
             Preco = preco;
         }
 
-        public void AddAluno(Alunos Aluno)
-        {
-            Alunos.Add(Aluno);
-        }
-        public void RemoveAluno(Alunos Aluno)
-        {
-            Alunos.Remove(Aluno);
-        }
     }
 
 

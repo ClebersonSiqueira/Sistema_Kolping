@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1GCWmCubUhjf0kyf78dDrohxhqHiMstSDe+wHPlQhamjv0ZNpi6ZKAwUmYRxWpNmWICnH80dxs7fxWyGxyqfMA==",
+  "dgSpecHash": "D87raws/BpSe1dzi2lMN6igl40FDM+OLB7A48iDZZUtpnA1BH8z7qYa0s7QQoGCZoqiSk65BS+BH5U17eRzO8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Cleberson\\Desktop\\C#\\Aplicacao_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj",
+  "projectFilePath": "C:\\Users\\Cleberson\\Desktop\\C#\\Sistema_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Cleberson\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Cleberson\\.nuget\\packages\\microsoft.aspnetcore\\2.1.7\\microsoft.aspnetcore.2.1.7.nupkg.sha512",

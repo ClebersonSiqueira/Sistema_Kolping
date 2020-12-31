@@ -58,6 +58,7 @@ namespace Aplicacao_Kolping.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 _context.Add(modalidades);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

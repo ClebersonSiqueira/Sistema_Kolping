@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cleberson\\Desktop\\C#\\Aplicacao_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj": {}
+    "C:\\Users\\Cleberson\\Desktop\\C#\\Sistema_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cleberson\\Desktop\\C#\\Aplicacao_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj": {
+    "C:\\Users\\Cleberson\\Desktop\\C#\\Sistema_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cleberson\\Desktop\\C#\\Aplicacao_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj",
+        "projectUniqueName": "C:\\Users\\Cleberson\\Desktop\\C#\\Sistema_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj",
         "projectName": "Aplicacao_Kolping",
-        "projectPath": "C:\\Users\\Cleberson\\Desktop\\C#\\Aplicacao_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj",
+        "projectPath": "C:\\Users\\Cleberson\\Desktop\\C#\\Sistema_Kolping\\Aplicacao_Kolping\\Aplicacao_Kolping.csproj",
         "packagesPath": "C:\\Users\\Cleberson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cleberson\\Desktop\\C#\\Aplicacao_Kolping\\Aplicacao_Kolping\\obj\\",
+        "outputPath": "C:\\Users\\Cleberson\\Desktop\\C#\\Sistema_Kolping\\Aplicacao_Kolping\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

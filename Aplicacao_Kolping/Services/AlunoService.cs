@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Aplicacao_Kolping.Data;
 using Aplicacao_Kolping.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacao_Kolping.Services
 {
@@ -28,7 +29,7 @@ namespace Aplicacao_Kolping.Services
         
         public Alunos FindById(int id)
         {
-            return _context.Alunos.FirstOrDefault(obj => obj.ID == id);
+            return _context.Alunos.Include(obj => obj.ModalidadeId).FirstOrDefault(obj => obj.ID == id);
         }
 
         public void Remove(int id)
