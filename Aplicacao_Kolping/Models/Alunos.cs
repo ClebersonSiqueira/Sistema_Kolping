@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Aplicacao_Kolping.Models
 {
@@ -10,6 +11,8 @@ namespace Aplicacao_Kolping.Models
         public int ID { get; set; }
         public string Nome { get; set; }
         public string Documento { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime Nascimento { get; set; }
         public int Telefone { get; set; }
         public string Email { get; set; }
@@ -18,7 +21,9 @@ namespace Aplicacao_Kolping.Models
         public string Bairro { get; set; }
         public string Cidade { get; set; }
         public string Cep { get; set; }
-        public DateTime DiadePagamento { get; set; }
+
+        [Display(Name = "Dia de Pagamento")]
+        public int DiadePagamento { get; set; }
         public IList<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
         public IList<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
 
@@ -26,7 +31,7 @@ namespace Aplicacao_Kolping.Models
         {
         }
 
-        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numero, string bairro, string cidade, string cep, DateTime diaDePagamaneto)
+        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numero, string bairro, string cidade, string cep, int diaDePagamaneto)
         {
             ID = iD;
             Nome = nome;

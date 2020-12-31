@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace Aplicacao_Kolping.Models
@@ -10,6 +11,7 @@ namespace Aplicacao_Kolping.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        [DisplayFormat(DataFormatString = "{0:f2}")]
         public double Preco { get; set; }
 
         public Modalidades()
