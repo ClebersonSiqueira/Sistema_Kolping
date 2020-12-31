@@ -92,3 +92,4 @@ C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcor
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.csproj.CopyComplete
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Alunos\Detalhes.cshtml.g.cs
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\Alunos\Editar.cshtml.g.cs
+C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\AlunoPagamento\Index.cshtml.g.cs

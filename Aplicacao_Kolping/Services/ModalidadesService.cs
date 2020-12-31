@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Aplicacao_Kolping.Data;
 using Aplicacao_Kolping.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aplicacao_Kolping.Services
 {
@@ -16,9 +17,10 @@ namespace Aplicacao_Kolping.Services
             _context = context;
         }
 
-        public List<Modalidades> FindAll()
+        public async Task<List<Modalidades>> FindAllAsync()
         {
-            return _context.Modalidades.ToList();
+
+            return await _context.Modalidades.ToListAsync();
         }
 
     }
