@@ -24,7 +24,7 @@ namespace Aplicacao_Kolping.Data
         {
             modelBuilder.Entity<Modalidades>().HasMany<Alunos>();
             modelBuilder.Entity<Alunos>().HasMany<Modalidades>(g => g.Modalidades);
-            modelBuilder.Entity<Alunos>().HasMany<Pagamentos>();
+            modelBuilder.Entity<Alunos>().HasMany<Pagamentos>(g => g.Pagamentos);
         }
 
     }

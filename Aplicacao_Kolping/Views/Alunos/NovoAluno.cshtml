@@ -54,8 +54,8 @@
                 <input asp-for="Aluno.DiadePagamento" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.ModalidadeId" class="control-label"></label>
-                <select asp-for="Aluno.ModalidadeId" asp-items="@(new SelectList(Model.Modalidades, "Id", "Name"))" class="form-control"></select>
+                <label asp-for="Aluno.Modalidades" class="control-label"></label>
+                <select asp-for="Aluno.Modalidades" asp-items="@(new SelectList(Model.Modalidades, "Id", "Name"))" class="form-control"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Criar" class="btn btn-default" />

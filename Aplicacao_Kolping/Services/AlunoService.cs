@@ -29,7 +29,7 @@ namespace Aplicacao_Kolping.Services
         
         public Alunos FindById(int id)
         {
-            return _context.Alunos.Include(obj => obj.ModalidadeId).FirstOrDefault(obj => obj.ID == id);
+            return _context.Alunos.Include(obj => obj.Modalidades).FirstOrDefault(obj => obj.ID == id);
         }
 
         public void Remove(int id)

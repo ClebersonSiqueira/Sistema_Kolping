@@ -19,7 +19,6 @@ namespace Aplicacao_Kolping.Models
         public string Cidade { get; set; }
         public string Cep { get; set; }
         public DateTime DiadePagamento { get; set; }
-        public int ModalidadeId { get; set; }
         public IList<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
         public IList<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
 
