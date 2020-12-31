@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Aplicacao_Kolping.Data;
 using Aplicacao_Kolping.Models;
 using Microsoft.EntityFrameworkCore;
+using Aplicacao_Kolping.Services.Exceptions;
 
 namespace Aplicacao_Kolping.Services
 {
@@ -37,6 +38,23 @@ namespace Aplicacao_Kolping.Services
             var obj = _context.Alunos.Find(id);
             _context.Alunos.Remove(obj);
             _context.SaveChanges();
+        }
+
+        public void Update(Alunos obj)
+        {
+            if(!_context.Alunos.Any(x => x.ID == obj.ID))
+            {
+                throw new NotFoundException("Id Não encontrado");
+            }
+            try
+            {
+                _context.Update(obj);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new DbConcurrencyException(e.Message);
+            }
         }
 
     }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Aplicacao_Kolping.Services;
 using Aplicacao_Kolping.Models;
+using Aplicacao_Kolping.Services.Exceptions;
 
 namespace Aplicacao_Kolping.Controllers
 {
@@ -64,6 +65,44 @@ namespace Aplicacao_Kolping.Controllers
                 return NotFound();
             }
             return View(obj);
+        }
+
+        public IActionResult Editar(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var obj = _AlunoService.FindById(id.Value);
+                if (obj == null)
+            {
+                return NotFound();
+            }
+            List<Modalidades> modalidades = _ModalidadesService.FindAll();
+            AlunosFormViewModel viewModel = new AlunosFormViewModel { Aluno = obj, Modalidades = modalidades };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Editar (int id, Alunos aluno)
+        {
+            if(id != aluno.ID)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                _AlunoService.Update(aluno);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (NotFoundException)
+            {
+                return NotFound();
+            }
+            catch(DbConcurrencyException){
+                return BadRequest();
+            }
         }
     }
 }
