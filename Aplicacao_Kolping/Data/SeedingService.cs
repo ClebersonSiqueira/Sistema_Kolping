@@ -23,6 +23,7 @@ namespace Aplicacao_Kolping.Data
             {
                 return; // DB has been seeded
             }
+            _context.SaveChanges();
         }
     }
 }

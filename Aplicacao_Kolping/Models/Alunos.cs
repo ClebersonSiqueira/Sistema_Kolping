@@ -31,8 +31,9 @@ namespace Aplicacao_Kolping.Models
         [Display(Name = "Dia de Pagamento *")]
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
         public int DiadePagamento { get; set; }
-        public IList<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
-        public IList<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
+        public Modalidades Modalidade { get; set; }
+        public ICollection<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
+        public ICollection<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
 
         public Alunos()
         {
@@ -61,6 +62,10 @@ namespace Aplicacao_Kolping.Models
         public void RemovePagamento(Pagamentos pg)
         {
             Pagamentos.Remove(pg);
+        }
+        public double TotalPagamentos(DateTime initial, DateTime final)
+        {
+            return Pagamentos.Where(sr => sr.Data >= initial && sr.Data <= final).Sum(sr => sr.Valor);
         }
         public void AddModalidade(Modalidades md)
         {

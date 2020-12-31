@@ -17,18 +17,18 @@ namespace Aplicacao_Kolping.Models
         [DisplayFormat(DataFormatString = "{0:f2}")]
         [Display(Name = "Valor Pago")]
         public double Valor { get; set; }
-        public int AlunoId { get; set; }
+        public Alunos Aluno { get; set; }
 
         public Pagamentos()
         {
         }
 
-        public Pagamentos(int id, DateTime data, double valor, Pagamentos pagamento, int alunoId)
+        public Pagamentos(int id, DateTime data, double valor, Pagamentos pagamento, Alunos aluno)
         {
             Id = id;
             Data = data;
             Valor = valor;
-            AlunoId = alunoId;
+            Aluno = aluno;
         }
     }
 

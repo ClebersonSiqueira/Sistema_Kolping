@@ -296,12 +296,12 @@ Write(ViewData["Title"]);
             WriteLiteral("\r\n        </dd>\r\n    </dl>\r\n    ");
             EndContext();
             BeginContext(2123, 214, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "65ada337d4a64854a68aeef29bccb546", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a90c30c07994b32aaaeb19541a3c851", async() => {
                 BeginContext(2150, 129, true);
                 WriteLiteral("\r\n        <input type=\"hidden\" asp-form=\"ID\" />\r\n        <input type=\"submit\" value=\"Deletar\" class=\"btn btn-danger\" />\r\n        ");
                 EndContext();
                 BeginContext(2279, 45, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "89ee798cbc8449c8b093e7f38ce84b63", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c1473d01f1d4cb4957f1ed1db455973", async() => {
                     BeginContext(2301, 19, true);
                     WriteLiteral("Voltar para a lista");
                     EndContext();

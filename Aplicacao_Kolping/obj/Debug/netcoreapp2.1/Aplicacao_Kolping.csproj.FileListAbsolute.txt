@@ -59,7 +59,6 @@ C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\bin\Debug\netcor
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.csprojAssemblyReference.cache
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.AssemblyInfoInputs.cache
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.AssemblyInfo.cs
-C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.csproj.CoreCompileInputs.cache
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.RazorAssemblyInfo.cache
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.RazorAssemblyInfo.cs
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.TagHelpers.input.cache
@@ -95,3 +94,4 @@ C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcor
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\AlunoPagamento\Index.cshtml.g.cs
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\AlunoPagamento\SimpleSearch.cshtml.g.cs
 C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Razor\Views\AlunoPagamento\GroupingSearch.cshtml.g.cs
+C:\Users\Cleberson\Desktop\C#\Sistema_Kolping\Aplicacao_Kolping\obj\Debug\netcoreapp2.1\Aplicacao_Kolping.csproj.CoreCompileInputs.cache
