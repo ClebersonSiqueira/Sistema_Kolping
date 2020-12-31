@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Aplicacao_Kolping.Services;
 using Aplicacao_Kolping.Models;
 using Aplicacao_Kolping.Services.Exceptions;
+using System.Diagnostics;
 
 namespace Aplicacao_Kolping.Controllers
 {
@@ -44,12 +45,12 @@ namespace Aplicacao_Kolping.Controllers
         {
             if(ID == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id não informado" });
             }
             var obj = _AlunoService.FindById(ID.Value);
             if(obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
             }
             return View(obj);
         }
@@ -57,12 +58,12 @@ namespace Aplicacao_Kolping.Controllers
         {
             if (ID == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id não informado" });
             }
             var obj = _AlunoService.FindById(ID.Value);
             if (obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
             }
             return View(obj);
         }
@@ -71,12 +72,12 @@ namespace Aplicacao_Kolping.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id não informado"});
             }
             var obj = _AlunoService.FindById(id.Value);
                 if (obj == null)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
             }
             List<Modalidades> modalidades = _ModalidadesService.FindAll();
             AlunosFormViewModel viewModel = new AlunosFormViewModel { Aluno = obj, Modalidades = modalidades };
@@ -89,20 +90,27 @@ namespace Aplicacao_Kolping.Controllers
         {
             if(id != aluno.ID)
             {
-                return BadRequest();
+                return RedirectToAction(nameof(Error), new { message = "Ids não correspondem" });
             }
             try
             {
                 _AlunoService.Update(aluno);
                 return RedirectToAction(nameof(Index));
             }
-            catch (NotFoundException)
+            catch (ApplicationException e)
             {
-                return NotFound();
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
-            catch(DbConcurrencyException){
-                return BadRequest();
-            }
+            
+        }
+        public IActionResult Error(string message)
+        {
+            var viewModel = new ErrorViewModel
+            {
+                Message = message,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+            return View(viewModel);
         }
     }
 }
