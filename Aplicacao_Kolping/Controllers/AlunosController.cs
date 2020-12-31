@@ -21,46 +21,54 @@ namespace Aplicacao_Kolping.Controllers
             _ModalidadesService = modalidadesServices;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var list = _AlunoService.FindAll();
+            var list = await _AlunoService.FindAllAsync();
             return View(list);
         }
 
-        public IActionResult NovoAluno()
+        public async Task <IActionResult> NovoAluno()
         {
-            var modalidades = _ModalidadesService.FindAll();
+            var modalidades = await _ModalidadesService.FindAllAsync();
             var viewModel = new AlunosFormViewModel { Modalidades = modalidades };
             return View(viewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Criar(Alunos aluno)
+        public async Task<IActionResult> Criar(Alunos aluno)
         {
-            _AlunoService.Insert(aluno);
+            await _AlunoService.Insert(aluno);
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Deletar(int? ID)
+        public async Task<IActionResult> Deletar(int? ID)
         {
             if(ID == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não informado" });
             }
-            var obj = _AlunoService.FindById(ID.Value);
+            var obj = await _AlunoService.FindByIdAsync(ID.Value);
             if(obj == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
             }
             return View(obj);
         }
-        public IActionResult Detalhes(int? ID)
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Deletar(int ID)
+        {
+            await _AlunoService.RemoveAsync(ID);
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> Detalhes(int? ID)
         {
             if (ID == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não informado" });
             }
-            var obj = _AlunoService.FindById(ID.Value);
+            var obj = await _AlunoService.FindByIdAsync(ID.Value);
             if (obj == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
@@ -68,25 +76,25 @@ namespace Aplicacao_Kolping.Controllers
             return View(obj);
         }
 
-        public IActionResult Editar(int? id)
+        public async Task<IActionResult> Editar(int? id)
         {
             if (id == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não informado"});
             }
-            var obj = _AlunoService.FindById(id.Value);
+            var obj = await _AlunoService.FindByIdAsync(id.Value);
                 if (obj == null)
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
             }
-            List<Modalidades> modalidades = _ModalidadesService.FindAll();
+            List<Modalidades> modalidades = await _ModalidadesService.FindAllAsync();
             AlunosFormViewModel viewModel = new AlunosFormViewModel { Aluno = obj, Modalidades = modalidades };
             return View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Editar (int id, Alunos aluno)
+        public async Task<IActionResult> Editar (int id, Alunos aluno)
         {
             if(id != aluno.ID)
             {
@@ -94,7 +102,7 @@ namespace Aplicacao_Kolping.Controllers
             }
             try
             {
-                _AlunoService.Update(aluno);
+                await _AlunoService.UpdateAsync(aluno);
                 return RedirectToAction(nameof(Index));
             }
             catch (ApplicationException e)

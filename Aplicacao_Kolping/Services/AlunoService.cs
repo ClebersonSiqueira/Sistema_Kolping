@@ -18,38 +18,39 @@ namespace Aplicacao_Kolping.Services
             _context = context;
         }
 
-        public List<Alunos> FindAll()
+        public async Task<List<Alunos>> FindAllAsync()
         {
-            return _context.Alunos.ToList();
+            return await _context.Alunos.ToListAsync();
         }
-        public void Insert(Alunos obj)
+        public async Task Insert(Alunos obj)
         {
             _context.Add(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
         
-        public Alunos FindById(int id)
+        public async Task<Alunos> FindByIdAsync(int id)
         {
-            return _context.Alunos.Include(obj => obj.Modalidades).FirstOrDefault(obj => obj.ID == id);
+            return await _context.Alunos.Include(obj => obj.Modalidades).FirstOrDefaultAsync(obj => obj.ID == id);
         }
 
-        public void Remove(int id)
+        public async Task RemoveAsync(int id)
         {
-            var obj = _context.Alunos.Find(id);
+            var obj = await _context.Alunos.FindAsync(id);
             _context.Alunos.Remove(obj);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public void Update(Alunos obj)
+        public async Task UpdateAsync(Alunos obj)
         {
-            if(!_context.Alunos.Any(x => x.ID == obj.ID))
+            bool hasAny = await _context.Alunos.AnyAsync(x => x.ID == obj.ID);
+            if (!hasAny)
             {
                 throw new NotFoundException("Id Não encontrado");
             }
             try
             {
                 _context.Update(obj);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException e)
             {
