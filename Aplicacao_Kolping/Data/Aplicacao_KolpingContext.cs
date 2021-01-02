@@ -22,11 +22,21 @@ namespace Aplicacao_Kolping.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Modalidades>().HasMany<Alunos>();
-            modelBuilder.Entity<Alunos>().HasMany<Modalidades>(g => g.Modalidades);
-            modelBuilder.Entity<Alunos>().HasMany<Pagamentos>(g => g.Pagamentos);
+            modelBuilder.Entity<Pagamentos>()
+                .HasOne(p => p.Aluno)
+                .WithMany(a => a.Pagamentos);
+
+            modelBuilder.Entity<AlunosModalidades>().HasKey(am => new { am.AlunoID, am.ModalidadeID });
+
+            modelBuilder.Entity<AlunosModalidades>()
+                .HasOne(a => a.Aluno)
+                .WithMany(m => m.Modalidades)
+                .HasForeignKey(a => a.AlunoID);
+
+            modelBuilder.Entity<AlunosModalidades>()
+                .HasOne(m => m.Modalidade)
+                .WithMany(a => a.Alunos)
+                .HasForeignKey(m => m.ModalidadeID);
         }
-
     }
-
 }

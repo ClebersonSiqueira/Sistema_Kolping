@@ -10,52 +10,52 @@
     <div class="col-md-8">
         <form asp-action="Criar">
             <div class="form-group">
-                <label asp-for="Aluno.Nome" class="control-label"></label>
-                <input asp-for="Aluno.Nome" class="form-control" />
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Documento" class="control-label"></label>
-                <input asp-for="Aluno.Documento" class="form-control" />
+                <label asp-for="Documento" class="control-label"></label>
+                <input asp-for="Documento" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Nascimento" class="control-label"></label>
-                <input asp-for="Aluno.Nascimento" class="form-control" />
+                <label asp-for="Nascimento" class="control-label"></label>
+                <input asp-for="Nascimento" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Telefone" class="control-label"></label>
-                <input asp-for="Aluno.Telefone" class="form-control" />
+                <label asp-for="Telefone" class="control-label"></label>
+                <input asp-for="Telefone" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Email" class="control-label"></label>
-                <input asp-for="Aluno.Email" class="form-control" />
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Rua" class="control-label"></label>
-                <input asp-for="Aluno.Rua" class="form-control" />
+                <label asp-for="Rua" class="control-label"></label>
+                <input asp-for="Rua" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Numero" class="control-label"></label>
-                <input asp-for="Aluno.Numero" class="form-control" />
+                <label asp-for="Numero" class="control-label"></label>
+                <input asp-for="Numero" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Bairro" class="control-label"></label>
-                <input asp-for="Aluno.Bairro" class="form-control" />
+                <label asp-for="Bairro" class="control-label"></label>
+                <input asp-for="Bairro" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Cidade" class="control-label"></label>
-                <input asp-for="Aluno.Cidade" class="form-control" />
+                <label asp-for="Cidade" class="control-label"></label>
+                <input asp-for="Cidade" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Cep" class="control-label"></label>
-                <input asp-for="Aluno.Cep" class="form-control" />
+                <label asp-for="Cep" class="control-label"></label>
+                <input asp-for="Cep" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.DiadePagamento" class="control-label"></label>
-                <input asp-for="Aluno.DiadePagamento" class="form-control" />
+                <label asp-for="DiadePagamento" class="control-label"></label>
+                <input asp-for="DiadePagamento" class="form-control" />
             </div>
             <div class="form-group">
-                <label asp-for="Aluno.Modalidades" class="control-label"></label>
-                <select asp-for="Aluno.Modalidades" asp-items="@(new SelectList(Model.Modalidades, "ID", "Name"))" class="form-control"></select>
+                <label asp-for="PostModalidades" class="control-label"></label>
+                <select asp-for="PostModalidades" asp-items="@ViewBag.Modalidades" class="form-control"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Criar" class="btn btn-default" />

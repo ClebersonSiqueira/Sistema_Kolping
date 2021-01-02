@@ -78,11 +78,14 @@
             @Html.DisplayFor(model => model.DiadePagamento)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Modalidades.FirstOrDefault().Name)
+            @Html.DisplayNameFor(model => model.Modalidades)
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Modalidades.FirstOrDefault().Name)
-        </dd>
+        @foreach (var modalidade in Model.Modalidades)
+        {
+            <dd>
+                @modalidade.Modalidade.Name
+            </dd>
+        }
     </dl>
 </div>
 <div>

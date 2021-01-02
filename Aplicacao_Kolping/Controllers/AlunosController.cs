@@ -7,6 +7,8 @@ using Aplicacao_Kolping.Services;
 using Aplicacao_Kolping.Models;
 using Aplicacao_Kolping.Services.Exceptions;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using AutoMapper;
 
 namespace Aplicacao_Kolping.Controllers
 {
@@ -14,11 +16,13 @@ namespace Aplicacao_Kolping.Controllers
     {
         private readonly AlunoService _AlunoService;
         private readonly ModalidadesService _ModalidadesService;
+        private readonly IMapper _mapper;
 
-        public AlunosController(AlunoService alunoService, ModalidadesService modalidadesServices)
+        public AlunosController(AlunoService alunoService, ModalidadesService modalidadesServices, IMapper mapper)
         {
             _AlunoService = alunoService;
             _ModalidadesService = modalidadesServices;
+            _mapper = mapper;
         }
 
         public async Task<IActionResult> Index()
@@ -30,12 +34,13 @@ namespace Aplicacao_Kolping.Controllers
         public async Task <IActionResult> NovoAluno()
         {
             var modalidades = await _ModalidadesService.FindAllAsync();
-            var viewModel = new AlunosFormViewModel { Modalidades = modalidades };
-            return View(viewModel);
+            ViewBag.Modalidades = new MultiSelectList(modalidades, "ID", "Name");
+            return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Criar(Alunos aluno)
+        public async Task<IActionResult> Criar(AlunosFormViewModel aluno)
         {
             await _AlunoService.Insert(aluno);
             return RedirectToAction(nameof(Index));
@@ -88,18 +93,15 @@ namespace Aplicacao_Kolping.Controllers
                 return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
             }
             List<Modalidades> modalidades = await _ModalidadesService.FindAllAsync();
-            AlunosFormViewModel viewModel = new AlunosFormViewModel { Aluno = obj, Modalidades = modalidades };
+            AlunosFormViewModel viewModel = _mapper.Map<AlunosFormViewModel>(obj);
+            ViewBag.Modalidades = new SelectList(modalidades, "ID", "Name");
             return View(viewModel);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Editar (int id, Alunos aluno)
+        public async Task<IActionResult> Editar (AlunosFormViewModel aluno)
         {
-            if(id != aluno.ID)
-            {
-                return RedirectToAction(nameof(Error), new { message = "Ids não correspondem" });
-            }
             try
             {
                 await _AlunoService.UpdateAsync(aluno);

@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 namespace Aplicacao_Kolping.Models
 {
-    public class AlunosFormViewModel
+    public class AlunosFormViewModel : Alunos
     {
-        public Alunos Aluno { get; set; }
-        public ICollection<Modalidades> Modalidades { get; set; }
-
+        public IList<int> PostModalidades { get; set; }
         public ICollection<Pagamentos> Pagamentos { get; set; }
     }
 }

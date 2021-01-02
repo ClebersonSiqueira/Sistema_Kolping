@@ -18,6 +18,8 @@ namespace Aplicacao_Kolping.Models
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
         public double Preco { get; set; }
 
+        public IList<AlunosModalidades> Alunos { get; set; } = new List<AlunosModalidades>();
+
         public Modalidades()
         {
         }

@@ -17,6 +17,9 @@ namespace Aplicacao_Kolping.Models
         [DisplayFormat(DataFormatString = "{0:f2}")]
         [Display(Name = "Valor Pago")]
         public double Valor { get; set; }
+
+        public int AlunoID { get; set; }
+
         public Alunos Aluno { get; set; }
 
         public Pagamentos()

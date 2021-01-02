@@ -14,6 +14,8 @@ using Aplicacao_Kolping.Data;
 using Aplicacao_Kolping.Services;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using AutoMapper;
+using Aplicacao_Kolping.Models;
 
 namespace Aplicacao_Kolping
 {
@@ -47,6 +49,14 @@ namespace Aplicacao_Kolping
             services.AddScoped<ModalidadesService>();
             services.AddScoped<AlunoPagamentoService>();
 
+            //AutoMapper
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<AlunosFormViewModel, Alunos>();
+                cfg.CreateMap<Alunos, AlunosFormViewModel>();
+            });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
