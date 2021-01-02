@@ -30,7 +30,7 @@ namespace Aplicacao_Kolping.Services
         
         public async Task<Alunos> FindByIdAsync(int id)
         {
-            return await _context.Alunos.Include(obj => obj.Modalidade).FirstOrDefaultAsync(obj => obj.ID == id);
+            return await _context.Alunos.Include(obj => obj.Modalidades).FirstOrDefaultAsync(obj => obj.ID == id);
         }
 
         public async Task RemoveAsync(int id)
