@@ -31,7 +31,6 @@ namespace Aplicacao_Kolping.Models
         [Display(Name = "Dia de Pagamento *")]
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
         public int DiadePagamento { get; set; }
-        public Modalidades Modalidade { get; set; }
         public ICollection<Modalidades> Modalidades { get; set; } = new List<Modalidades>();
         public ICollection<Pagamentos> Pagamentos { get; set; } = new List<Pagamentos>();
 
