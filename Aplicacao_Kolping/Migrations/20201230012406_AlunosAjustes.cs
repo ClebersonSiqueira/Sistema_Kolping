@@ -12,11 +12,6 @@ namespace Aplicacao_Kolping.Migrations
                 table: "Alunos");
 
             migrationBuilder.RenameColumn(
-                name: "ID",
-                table: "Modalidades",
-                newName: "Id");
-
-            migrationBuilder.RenameColumn(
                 name: "ModalidadesID",
                 table: "Alunos",
                 newName: "ModalidadesId");
