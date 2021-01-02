@@ -9,7 +9,7 @@ namespace Aplicacao_Kolping.Models
 {
     public class Modalidades
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
         public string Name { get; set; }
@@ -24,7 +24,7 @@ namespace Aplicacao_Kolping.Models
 
         public Modalidades(int iD, string name, double preco)
         {
-            Id = iD;
+            ID = iD;
             Name = name;
             Preco = preco;
         }
