@@ -37,12 +37,29 @@ namespace Aplicacao_Kolping.Services
 
         private async Task MapearModalidades(AlunosFormViewModel obj, Alunos aluno)
         {
-            if (obj.PostModalidades.Any())
+            if (!obj.PostModalidades.Any())
+                return;
+
+            var excluir = aluno.Modalidades.Where(m => !obj.PostModalidades.Any(p => p == m.ModalidadeID)).ToList();
+            var adicionar = obj.PostModalidades.Where(p => !aluno.Modalidades.Any(a => a.ModalidadeID == p));
+
+            if (excluir.Any())
             {
-                foreach (var id in obj.PostModalidades)
-                {
-                    
-                }
+                foreach (var modalidade in excluir)
+                    aluno.removeModalidade(modalidade.Modalidade);
+            }
+
+            if (!adicionar.Any())
+                return;
+
+            foreach (var id in adicionar)
+            {
+                var modalidade = _context.Modalidades.Find(id);
+
+                if (modalidade == null)
+                    continue;
+
+                aluno.AddModalidade(modalidade);
             }
         }
 
@@ -60,11 +77,12 @@ namespace Aplicacao_Kolping.Services
 
         public async Task UpdateAsync(AlunosFormViewModel obj)
         {
-            Alunos aluno = await _context.Alunos.FindAsync(obj.ID);
+            Alunos aluno = await _context.Alunos.Include(a => a.Modalidades).ThenInclude(a => a.Modalidade).FirstOrDefaultAsync(a => a.ID == obj.ID);
             if (aluno == null)
             {
                 throw new NotFoundException("Id Não encontrado");
             }
+
             try
             {
                 aluno = _mapper.Map(obj, aluno);

@@ -52,7 +52,7 @@ namespace Aplicacao_Kolping
             //AutoMapper
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<AlunosFormViewModel, Alunos>();
+                cfg.CreateMap<AlunosFormViewModel, Alunos>().ForMember(a => a.Modalidades, opt => opt.Ignore());
                 cfg.CreateMap<Alunos, AlunosFormViewModel>();
             });
             IMapper mapper = config.CreateMapper();

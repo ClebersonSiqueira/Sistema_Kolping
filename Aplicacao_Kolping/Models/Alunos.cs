@@ -72,7 +72,11 @@ namespace Aplicacao_Kolping.Models
         }
         public void removeModalidade(Modalidades md)
         {
-            Modalidades.Remove(new AlunosModalidades { AlunoID = ID, ModalidadeID = md.ID, Modalidade = md });
+            var modalidade = Modalidades.FirstOrDefault(m => m.ModalidadeID == md.ID);
+            if (modalidade != null)
+            {
+                Modalidades.Remove(modalidade);
+            }
         }
     }
 }
