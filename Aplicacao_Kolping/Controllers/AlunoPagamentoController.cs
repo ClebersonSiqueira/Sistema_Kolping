@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Aplicacao_Kolping.Services;
+using Aplicacao_Kolping.Data;
+using Aplicacao_Kolping.Models;
 
 namespace Aplicacao_Kolping.Controllers
 {
@@ -11,6 +13,7 @@ namespace Aplicacao_Kolping.Controllers
     public class AlunoPagamentoController : Controller
     {
         private readonly AlunoPagamentoService _alunoPagamentoService;
+        
 
         public AlunoPagamentoController(AlunoPagamentoService alunoPagamentoService)
         {
@@ -22,9 +25,8 @@ namespace Aplicacao_Kolping.Controllers
             return View();
         }
 
-        public async Task<IActionResult> SimpleSearch( DateTime? minDate, DateTime? maxDate)
+        public IActionResult SimpleSearch( DateTime? minDate, DateTime? maxDate)
         {
-            var result = await _alunoPagamentoService.FindByDateAsync(minDate, maxDate);
             return View();
         }
 
@@ -32,7 +34,5 @@ namespace Aplicacao_Kolping.Controllers
         {
             return View();
         }
-
-
     }
 }

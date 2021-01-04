@@ -12,31 +12,18 @@ namespace Aplicacao_Kolping.Services
     public class AlunoPagamentoService
     {
         private readonly Aplicacao_KolpingContext _context;
-        private readonly Alunos _aluno;
 
-        public AlunoPagamentoService(Aplicacao_KolpingContext context, Alunos aluno)
+        public AlunoPagamentoService(Aplicacao_KolpingContext context)
         {
             _context = context;
-            _aluno = aluno;
         }
 
-        public async Task <List<Pagamentos>> FindByDateAsync (DateTime? minDate, DateTime? maxDate)
+        public async Task<List<Pagamentos>> FindAllAsync()
         {
-            var result = from obj in _context.Pagamentos select obj;
-            if (minDate.HasValue)
-            {
-                result = result.Where(x => x.Data >= minDate.Value);
-            }
-            if (maxDate.HasValue)
-            {
-                result = result.Where(x => x.Data <= maxDate.Value);
-            }
-            return await result
-                .Include(x => _context.Alunos)
-                .Include(x => _aluno.Modalidades)
-                .OrderByDescending(x => x.Data)
-                .ToListAsync();
+            return await _context.Pagamentos.ToListAsync();
         }
+
+        
 
     }
 }

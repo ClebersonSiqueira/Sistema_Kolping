@@ -9,6 +9,7 @@ using Aplicacao_Kolping.Services.Exceptions;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AutoMapper;
+using Aplicacao_Kolping.Data;
 
 namespace Aplicacao_Kolping.Controllers
 {
@@ -16,13 +17,16 @@ namespace Aplicacao_Kolping.Controllers
     {
         private readonly AlunoService _AlunoService;
         private readonly ModalidadesService _ModalidadesService;
+        private readonly AlunoPagamentoService _AlunoPagamentoService;
+
         private readonly IMapper _mapper;
 
-        public AlunosController(AlunoService alunoService, ModalidadesService modalidadesServices, IMapper mapper)
+        public AlunosController(AlunoService alunoService, ModalidadesService modalidadesServices, IMapper mapper, AlunoPagamentoService alunoPagamentoService)
         {
             _AlunoService = alunoService;
             _ModalidadesService = modalidadesServices;
             _mapper = mapper;
+            _AlunoPagamentoService = alunoPagamentoService;
         }
 
         public async Task<IActionResult> Index()
@@ -122,5 +126,31 @@ namespace Aplicacao_Kolping.Controllers
             };
             return View(viewModel);
         }
+        [HttpGet]
+        [ValidateAntiForgeryToken]
+
+        public async Task<IActionResult> Comprovante(int? id, AlunosFormViewModel pagamento)
+        {
+            var obj = await _AlunoService.FindByIdAsync(id.Value);
+            if (id == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id não informado" });
+            }
+            if (obj == null)
+            {
+                return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
+            }
+            AlunosFormViewModel viewModel = _mapper.Map<AlunosFormViewModel>(obj);
+            List<Modalidades> modalidades = await _ModalidadesService.FindAllAsync();
+            List<Pagamentos> pagamentos = await _AlunoPagamentoService.FindAllAsync();
+            await _AlunoService.InsertPagamento(pagamento);
+
+            return View();
+        }
+
+
+        
+
+
     }
 }

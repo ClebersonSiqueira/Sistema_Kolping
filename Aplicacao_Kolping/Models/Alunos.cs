@@ -56,7 +56,7 @@ namespace Aplicacao_Kolping.Models
 
         public void AddPagamento(Pagamentos pg)
         {
-            Pagamentos.Add(pg);
+            Pagamentos.Add(new Pagamentos { Id = pg.AlunoID, Data = pg.Data, Valor = pg.Valor, AlunoID = ID });
         }
         public void RemovePagamento(Pagamentos pg)
         {
@@ -78,5 +78,6 @@ namespace Aplicacao_Kolping.Models
                 Modalidades.Remove(modalidade);
             }
         }
+        
     }
 }

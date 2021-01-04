@@ -29,13 +29,22 @@ namespace Aplicacao_Kolping.Services
         public async Task Insert(AlunosFormViewModel obj)
         {
             Alunos aluno = _mapper.Map<Alunos>(obj);
-            await MapearModalidades(obj, aluno);
+            MapearModalidades(obj, aluno);
 
             _context.Add(aluno);
             await _context.SaveChangesAsync();
         }
 
-        private async Task MapearModalidades(AlunosFormViewModel obj, Alunos aluno)
+        public async Task InsertPagamento(AlunosFormViewModel obj)
+        {
+            Alunos aluno = _mapper.Map<Alunos>(obj);
+            MapearPagamanetos(obj, aluno);
+
+            _context.Add(aluno);
+            await _context.SaveChangesAsync();
+        }
+
+        private void MapearModalidades(AlunosFormViewModel obj, Alunos aluno)
         {
             if (!obj.PostModalidades.Any())
                 return;
@@ -62,6 +71,28 @@ namespace Aplicacao_Kolping.Services
                 aluno.AddModalidade(modalidade);
             }
         }
+        private void MapearPagamanetos(AlunosFormViewModel obj, Alunos aluno)
+        {
+            var adicionar = obj.PostPagamentos.Where(p => !aluno.Pagamentos.Any(a => a.Id == p));
+
+            foreach (var id in adicionar)
+            {
+                var pagamento = _context.Pagamentos.Find(id);
+
+                if (pagamento == null)
+                    continue;
+
+                pagamento.Data = DateTime.Today;
+                double ValorTotal = CalculaValor();
+                pagamento.Valor = ValorTotal;
+
+                aluno.AddPagamento(pagamento);
+            }
+        }
+        public double CalculaValor()
+        {
+            return 20.0;
+        }
 
         public async Task<Alunos> FindByIdAsync(int id)
         {
@@ -86,7 +117,7 @@ namespace Aplicacao_Kolping.Services
             try
             {
                 aluno = _mapper.Map(obj, aluno);
-                await MapearModalidades(obj, aluno);
+                MapearModalidades(obj, aluno);
                 _context.Update(aluno);
                 await _context.SaveChangesAsync();
             }

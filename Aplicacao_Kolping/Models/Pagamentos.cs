@@ -26,12 +26,12 @@ namespace Aplicacao_Kolping.Models
         {
         }
 
-        public Pagamentos(int id, DateTime data, double valor, Pagamentos pagamento, Alunos aluno)
+        public Pagamentos(int id, DateTime data, double valor, Pagamentos pagamento, int AlunoId)
         {
             Id = id;
             Data = data;
             Valor = valor;
-            Aluno = aluno;
+            AlunoID = AlunoId;
         }
     }
 

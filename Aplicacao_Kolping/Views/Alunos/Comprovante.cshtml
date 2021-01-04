@@ -1,0 +1,21 @@
+﻿@model Aplicacao_Kolping.Models.Alunos
+@{
+    ViewData["Title"] = "Comprovante de contribuição";
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<hr />
+<hr />
+
+<h4>O seguinte comprovande de numero @Html.DisplayFor(model => model.Pagamentos.LastOrDefault().Id)</h4>
+<h4>refere-se a contribuição realizada por</h4>
+<h4>@Html.DisplayFor(model => model.Nome)</h4>
+<h4>na data do dia @Html.DisplayFor(model => model.Pagamentos.LastOrDefault().Data)</h4>
+<h4>Referente as modalidades:</h4>
+@foreach (var modalidade in Model.Modalidades)
+{
+    <dd>
+        @modalidade.Modalidade.Name
+    </dd>
+}
