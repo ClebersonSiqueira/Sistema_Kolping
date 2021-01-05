@@ -3,14 +3,16 @@ using System;
 using Aplicacao_Kolping.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Aplicacao_Kolping.Migrations
 {
     [DbContext(typeof(Aplicacao_KolpingContext))]
-    partial class Aplicacao_KolpingContextModelSnapshot : ModelSnapshot
+    [Migration("20210105024503_AjustesNoSistemaDePagamentos")]
+    partial class AjustesNoSistemaDePagamentos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,11 +24,17 @@ namespace Aplicacao_Kolping.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("Abr");
+
+                    b.Property<bool>("Ago");
+
                     b.Property<string>("Bairro");
 
                     b.Property<string>("Cep");
 
                     b.Property<string>("Cidade");
+
+                    b.Property<bool>("Dez");
 
                     b.Property<int>("DiadePagamento");
 
@@ -34,14 +42,32 @@ namespace Aplicacao_Kolping.Migrations
 
                     b.Property<string>("Email");
 
+                    b.Property<bool>("Fev");
+
+                    b.Property<bool>("Jan");
+
+                    b.Property<bool>("Jul");
+
+                    b.Property<bool>("Jun");
+
+                    b.Property<bool>("Mai");
+
+                    b.Property<bool>("Mar");
+
                     b.Property<DateTime>("Nascimento");
 
                     b.Property<string>("Nome")
                         .IsRequired();
 
+                    b.Property<bool>("Nov");
+
                     b.Property<string>("Numero");
 
+                    b.Property<bool>("Out");
+
                     b.Property<string>("Rua");
+
+                    b.Property<bool>("Set");
 
                     b.Property<int>("Telefone");
 
@@ -80,25 +106,6 @@ namespace Aplicacao_Kolping.Migrations
                     b.ToTable("Modalidades");
                 });
 
-            modelBuilder.Entity("Aplicacao_Kolping.Models.Pagamentos", b =>
-                {
-                    b.Property<int>("IdPagamento")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("AlunoID");
-
-                    b.Property<DateTime>("DataPagamento");
-
-                    b.Property<int>("IdAluno");
-
-                    b.HasKey("IdPagamento")
-                        .HasName("PrimaryKey_IdPagamento");
-
-                    b.HasIndex("AlunoID");
-
-                    b.ToTable("Pagamentos");
-                });
-
             modelBuilder.Entity("Aplicacao_Kolping.Models.AlunosModalidades", b =>
                 {
                     b.HasOne("Aplicacao_Kolping.Models.Alunos", "Aluno")
@@ -110,13 +117,6 @@ namespace Aplicacao_Kolping.Migrations
                         .WithMany("Alunos")
                         .HasForeignKey("ModalidadeID")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("Aplicacao_Kolping.Models.Pagamentos", b =>
-                {
-                    b.HasOne("Aplicacao_Kolping.Models.Alunos", "Aluno")
-                        .WithMany()
-                        .HasForeignKey("AlunoID");
                 });
 #pragma warning restore 612, 618
         }

@@ -83,15 +83,42 @@
         @foreach (var modalidade in Model.Modalidades)
         {
             <dd>
-                @modalidade.Modalidade.Name
+                <b>@modalidade.Modalidade.Name</b>
+            </dd>
+            <dd>
+                @modalidade.Modalidade.Descricao
             </dd>
         }
+
     </dl>
 </div>
 <div>
-    <a asp-action="Editar" asp-route-id="@Model.ID">Editar</a>
-    <a asp-action="Index">Voltar para a lista</a>
+    <a asp-action="AdicionaPagamento" asp-route-id="@Model.ID">Novo Pagamento</a>
     <hr />
-    <a asp-action="Comprovante" asp-route-id="@Model.ID">Gerar comprovante de Contribuição</a>
+</div>
+<div>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pagamentos)
+        </dt>
+        @foreach (var pagamento in Model.Pagamentos)
+        {
+            int numeropagamento = 1;
+    <dd>
+        <b>Pagamento numero @numeropagamento</b>
+        <b>@pagamento.DataPagamento</b>
+        <a asp-action="Deletar" asp-route-id="@pagamento.IdPagamento">Deletar Pagamento</a>
+    </dd>
+        }
+    </dl>
+</div>
+
+<hr />
+<hr />
+<div>
+    <a asp-action="Editar" asp-route-id="@Model.ID">Editar Aluno    |</a>
+    <a asp-action="Index">|    Voltar para a lista</a>
+
+    <hr />
 </div>
 

@@ -20,13 +20,12 @@ namespace Aplicacao_Kolping.Data
 
         public DbSet<Pagamentos> Pagamentos { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pagamentos>()
-                .HasOne(p => p.Aluno)
-                .WithMany(a => a.Pagamentos);
 
             modelBuilder.Entity<AlunosModalidades>().HasKey(am => new { am.AlunoID, am.ModalidadeID });
+
 
             modelBuilder.Entity<AlunosModalidades>()
                 .HasOne(a => a.Aluno)
@@ -37,6 +36,11 @@ namespace Aplicacao_Kolping.Data
                 .HasOne(m => m.Modalidade)
                 .WithMany(a => a.Alunos)
                 .HasForeignKey(m => m.ModalidadeID);
+
+            modelBuilder.Entity<Pagamentos>()
+                .HasKey(p => new { p.IdPagamento })
+                .HasName("PrimaryKey_IdPagamento");
+
         }
     }
 }

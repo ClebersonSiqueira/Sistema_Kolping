@@ -54,7 +54,7 @@ namespace Aplicacao_Kolping.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Preco")] Modalidades modalidades)
+        public async Task<IActionResult> Create([Bind("ID,Name,Preco,Descricao")] Modalidades modalidades)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace Aplicacao_Kolping.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Preco")] Modalidades modalidades)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Preco,Descricao")] Modalidades modalidades)
         {
             if (id != modalidades.ID)
             {

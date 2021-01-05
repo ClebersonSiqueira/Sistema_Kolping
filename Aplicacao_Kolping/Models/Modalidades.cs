@@ -18,19 +18,22 @@ namespace Aplicacao_Kolping.Models
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
         public double Preco { get; set; }
 
+        [Display(Name = "Descrição")]
+        public string Descricao { get; set; }
+
         public IList<AlunosModalidades> Alunos { get; set; } = new List<AlunosModalidades>();
 
         public Modalidades()
         {
         }
 
-        public Modalidades(int iD, string name, double preco)
+        public Modalidades(int iD, string name, double preco, string descricao)
         {
             ID = iD;
             Name = name;
             Preco = preco;
+            Descricao = descricao;
         }
-
     }
 
 

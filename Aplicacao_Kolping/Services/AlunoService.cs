@@ -14,7 +14,6 @@ namespace Aplicacao_Kolping.Services
     {
         private readonly Aplicacao_KolpingContext _context;
         private readonly IMapper _mapper;
-        private readonly ModalidadesService modalidadesService;
 
         public AlunoService(Aplicacao_KolpingContext context, IMapper mapper)
         {
@@ -30,15 +29,6 @@ namespace Aplicacao_Kolping.Services
         {
             Alunos aluno = _mapper.Map<Alunos>(obj);
             MapearModalidades(obj, aluno);
-
-            _context.Add(aluno);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task InsertPagamento(AlunosFormViewModel obj)
-        {
-            Alunos aluno = _mapper.Map<Alunos>(obj);
-            MapearPagamanetos(obj, aluno);
 
             _context.Add(aluno);
             await _context.SaveChangesAsync();
@@ -71,27 +61,13 @@ namespace Aplicacao_Kolping.Services
                 aluno.AddModalidade(modalidade);
             }
         }
-        private void MapearPagamanetos(AlunosFormViewModel obj, Alunos aluno)
+
+        public void PagamentoRealizado(Alunos aluno)
         {
-            var adicionar = obj.PostPagamentos.Where(p => !aluno.Pagamentos.Any(a => a.Id == p));
-
-            foreach (var id in adicionar)
-            {
-                var pagamento = _context.Pagamentos.Find(id);
-
-                if (pagamento == null)
-                    continue;
-
-                pagamento.Data = DateTime.Today;
-                double ValorTotal = CalculaValor();
-                pagamento.Valor = ValorTotal;
-
-                aluno.AddPagamento(pagamento);
-            }
-        }
-        public double CalculaValor()
-        {
-            return 20.0;
+            Pagamentos pg = new Pagamentos();
+            pg.DataPagamento = DateTime.Today;
+            pg.IdAluno = aluno.ID;
+            aluno.AddPagamento(pg);
         }
 
         public async Task<Alunos> FindByIdAsync(int id)

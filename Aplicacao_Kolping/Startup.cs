@@ -47,7 +47,6 @@ namespace Aplicacao_Kolping
             services.AddScoped<SeedingService>();
             services.AddScoped<AlunoService>();
             services.AddScoped<ModalidadesService>();
-            services.AddScoped<AlunoPagamentoService>();
 
             //AutoMapper
             var config = new MapperConfiguration(cfg =>

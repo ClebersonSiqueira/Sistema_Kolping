@@ -38,7 +38,7 @@ namespace Aplicacao_Kolping.Models
         {
         }
 
-        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numero, string bairro, string cidade, string cep, int diaDePagamaneto)
+        public Alunos(int iD, string nome, string documento, DateTime nascimento, int telefone, string email, string rua, string numero, string bairro, string cidade, string cep, int diadePagamento, bool jan, bool fev, bool mar, bool abr, bool mai, bool jun, bool jul, bool ago, bool set, bool @out, bool nov, bool dez)
         {
             ID = iD;
             Nome = nome;
@@ -51,21 +51,9 @@ namespace Aplicacao_Kolping.Models
             Bairro = bairro;
             Cidade = cidade;
             Cep = cep;
-            DiadePagamento = diaDePagamaneto;
+            DiadePagamento = diadePagamento;
         }
 
-        public void AddPagamento(Pagamentos pg)
-        {
-            Pagamentos.Add(new Pagamentos { Id = pg.AlunoID, Data = pg.Data, Valor = pg.Valor, AlunoID = ID });
-        }
-        public void RemovePagamento(Pagamentos pg)
-        {
-            Pagamentos.Remove(pg);
-        }
-        public double TotalPagamentos(DateTime initial, DateTime final)
-        {
-            return Pagamentos.Where(sr => sr.Data >= initial && sr.Data <= final).Sum(sr => sr.Valor);
-        }
         public void AddModalidade(Modalidades md)
         {
             Modalidades.Add(new AlunosModalidades { AlunoID = ID, ModalidadeID = md.ID, Modalidade = md});
@@ -77,6 +65,10 @@ namespace Aplicacao_Kolping.Models
             {
                 Modalidades.Remove(modalidade);
             }
+        }
+        public void AddPagamento(Pagamentos pg)
+        {
+            Pagamentos.Add(new Pagamentos { IdPagamento = pg.IdPagamento, IdAluno = ID, DataPagamento = pg.DataPagamento });
         }
         
     }
