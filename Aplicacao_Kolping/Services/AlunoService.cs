@@ -34,6 +34,8 @@ namespace Aplicacao_Kolping.Services
             await _context.SaveChangesAsync();
         }
 
+        
+
         private void MapearModalidades(AlunosFormViewModel obj, Alunos aluno)
         {
             if (!obj.PostModalidades.Any())
@@ -60,14 +62,6 @@ namespace Aplicacao_Kolping.Services
 
                 aluno.AddModalidade(modalidade);
             }
-        }
-
-        public void PagamentoRealizado(Alunos aluno)
-        {
-            Pagamentos pg = new Pagamentos();
-            pg.DataPagamento = DateTime.Today;
-            pg.IdAluno = aluno.ID;
-            aluno.AddPagamento(pg);
         }
 
         public async Task<Alunos> FindByIdAsync(int id)
@@ -102,6 +96,11 @@ namespace Aplicacao_Kolping.Services
                 throw new DbConcurrencyException(e.Message);
             }
         }
+        public async Task<List<Pagamentos>> FindAllPagamentosAsync()
+        {
+            return await _context.Pagamentos.ToListAsync();
+        }
+
 
     }
 }

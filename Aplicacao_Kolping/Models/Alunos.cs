@@ -70,6 +70,7 @@ namespace Aplicacao_Kolping.Models
         {
             Pagamentos.Add(new Pagamentos { IdPagamento = pg.IdPagamento, IdAluno = ID, DataPagamento = pg.DataPagamento });
         }
+
         
     }
 }
