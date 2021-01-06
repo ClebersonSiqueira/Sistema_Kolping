@@ -101,6 +101,26 @@ namespace Aplicacao_Kolping.Services
             return await _context.Pagamentos.ToListAsync();
         }
 
+        
+        
+            public async Task AdicionaPagamentoAsync(int Id)
+        {
+            {
+                Pagamentos pagamento = new Pagamentos { DataPagamento = DateTime.Now, IdAluno = Id };
+                _context.Pagamentos.Add(pagamento);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task DeletaPagamentoAsync(int id)
+        {
+            {
+                var pagamento = _context.Pagamentos.Find(id);
+                _context.Pagamentos.Remove(pagamento);
+                await _context.SaveChangesAsync();
+            }
+        }
+
 
     }
 }

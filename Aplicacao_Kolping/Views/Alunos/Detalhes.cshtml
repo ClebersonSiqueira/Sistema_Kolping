@@ -94,9 +94,13 @@
     </dl>
 </div>
 <div>
-    <a asp-action="AdicionaPagamento" asp-route-id="@Model.ID">Novo Pagamento</a>
-    <hr />
-</div>
+    @if (Model.ID >= 0)
+    {
+        <input type="hidden" id="@Model.ID" name="@Model.ID" value="@Model.ID">
+        <a asp-action="Pagamento" asp-route-id="@Model.ID">Deletar Pagamento</a>
+        <hr />
+    }
+    </div>
 <div>
     <dl>
         <dt>
@@ -117,6 +121,7 @@
                 </dd>
                 <dd>
                     @pagamento.DataPagamento
+                    <input type="hidden" id="IdPagamento" name="IdPagamento" value="@Model.Pagamentos.LastOrDefault().IdPagamento">
                     <a asp-action="DeletaPagamento" asp-route-id="@pagamento.IdPagamento">Deletar Pagamento</a>
                     <hr />
                 </dd>

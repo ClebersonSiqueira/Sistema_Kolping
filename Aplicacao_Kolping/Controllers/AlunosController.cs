@@ -17,7 +17,6 @@ namespace Aplicacao_Kolping.Controllers
     {
         private readonly AlunoService _AlunoService;
         private readonly ModalidadesService _ModalidadesService;
-        private readonly Aplicacao_KolpingContext _context;
         private readonly IMapper _mapper;
 
         public AlunosController(AlunoService alunoService, ModalidadesService modalidadesServices, IMapper mapper)
@@ -126,21 +125,17 @@ namespace Aplicacao_Kolping.Controllers
             return View(viewModel);
         }
 
-        public IActionResult AdicionaPagamento(int id, Alunos aluno)
+
+        public async Task<IActionResult> Pagamento(int ID)
         {
-            Pagamentos pg = new Pagamentos{ DataPagamento = DateTime.Now, IdPagamento = id, IdAluno = aluno.ID };
-            _context.Pagamentos.Add(pg);
-            _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            
+            await _AlunoService.AdicionaPagamentoAsync(ID);
+            return View();
         }
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeletaPagamento(int id)
         {
-            var pagamento = await _context.Pagamentos.FindAsync(id);
-            _context.Pagamentos.Remove(pagamento);
-            await _context.SaveChangesAsync();
+            await _AlunoService.DeletaPagamentoAsync(id);
             return View();
         }
 
