@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Aplicacao_Kolping.Migrations
 {
     [DbContext(typeof(Aplicacao_KolpingContext))]
-    [Migration("20210102213730_RelacionandoAlunosComModalidades")]
-    partial class RelacionandoAlunosComModalidades
+    [Migration("20210106222406_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,6 +70,8 @@ namespace Aplicacao_Kolping.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Descricao");
+
                     b.Property<string>("Name")
                         .IsRequired();
 
@@ -82,18 +84,16 @@ namespace Aplicacao_Kolping.Migrations
 
             modelBuilder.Entity("Aplicacao_Kolping.Models.Pagamentos", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdPagamento")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AlunoID");
+                    b.Property<DateTime>("DataPagamento");
 
-                    b.Property<DateTime>("Data");
+                    b.Property<int>("IdAluno");
 
-                    b.Property<double>("Valor");
+                    b.HasKey("IdPagamento");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("AlunoID");
+                    b.HasIndex("IdAluno");
 
                     b.ToTable("Pagamentos");
                 });
@@ -115,7 +115,7 @@ namespace Aplicacao_Kolping.Migrations
                 {
                     b.HasOne("Aplicacao_Kolping.Models.Alunos", "Aluno")
                         .WithMany("Pagamentos")
-                        .HasForeignKey("AlunoID")
+                        .HasForeignKey("IdAluno")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

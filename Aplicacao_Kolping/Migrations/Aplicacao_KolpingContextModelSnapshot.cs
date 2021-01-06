@@ -85,16 +85,13 @@ namespace Aplicacao_Kolping.Migrations
                     b.Property<int>("IdPagamento")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AlunoID");
-
                     b.Property<DateTime>("DataPagamento");
 
                     b.Property<int>("IdAluno");
 
-                    b.HasKey("IdPagamento")
-                        .HasName("PrimaryKey_IdPagamento");
+                    b.HasKey("IdPagamento");
 
-                    b.HasIndex("AlunoID");
+                    b.HasIndex("IdAluno");
 
                     b.ToTable("Pagamentos");
                 });
@@ -115,8 +112,9 @@ namespace Aplicacao_Kolping.Migrations
             modelBuilder.Entity("Aplicacao_Kolping.Models.Pagamentos", b =>
                 {
                     b.HasOne("Aplicacao_Kolping.Models.Alunos", "Aluno")
-                        .WithMany()
-                        .HasForeignKey("AlunoID");
+                        .WithMany("Pagamentos")
+                        .HasForeignKey("IdAluno")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

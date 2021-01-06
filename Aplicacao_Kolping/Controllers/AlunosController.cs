@@ -79,7 +79,7 @@ namespace Aplicacao_Kolping.Controllers
             {
                 return RedirectToAction(nameof(Error), new { message = "Id não localizado" });
             }
-            List<Pagamentos> pagamentos = await _AlunoService.FindAllPagamentosAsync();
+
             return View(obj);
         }
 
@@ -140,7 +140,5 @@ namespace Aplicacao_Kolping.Controllers
             var obj = await _AlunoService.FindByIdAsync(retorno);
             return View(obj);
         }
-
-
     }
 }

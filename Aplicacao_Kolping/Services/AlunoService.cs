@@ -66,7 +66,11 @@ namespace Aplicacao_Kolping.Services
 
         public async Task<Alunos> FindByIdAsync(int id)
         {
-            return await _context.Alunos.Include(m => m.Modalidades).ThenInclude(m => m.Modalidade).FirstOrDefaultAsync(obj => obj.ID == id);
+            return await _context.Alunos
+                .Include(p => p.Pagamentos)
+                .Include(m => m.Modalidades)
+                .ThenInclude(m => m.Modalidade)
+                .FirstOrDefaultAsync(obj => obj.ID == id);
         }
        
 
