@@ -128,15 +128,17 @@ namespace Aplicacao_Kolping.Controllers
 
         public async Task<IActionResult> Pagamento(int ID)
         {
-            
             await _AlunoService.AdicionaPagamentoAsync(ID);
-            return View();
+            var obj = await _AlunoService.FindByIdAsync(ID);
+            return View(obj);
         }
 
         public async Task<IActionResult> DeletaPagamento(int id)
         {
+            int retorno = _AlunoService.PesquisaPagamento(id);
             await _AlunoService.DeletaPagamentoAsync(id);
-            return View();
+            var obj = await _AlunoService.FindByIdAsync(retorno);
+            return View(obj);
         }
 
 

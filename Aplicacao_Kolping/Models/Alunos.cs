@@ -10,13 +10,13 @@ namespace Aplicacao_Kolping.Models
     {
         public int ID { get; set; }
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
-        [Display(Name = "Nome *")]
+        [Display(Name = "Nome")]
         public string Nome { get; set; }
         public string Documento { get; set; }
 
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
-        [Display(Name = "Data de Nascimento *")]
+        [Display(Name = "Data de Nascimento")]
         public DateTime Nascimento { get; set; }
         public int Telefone { get; set; }
 
@@ -28,7 +28,7 @@ namespace Aplicacao_Kolping.Models
         public string Cidade { get; set; }
         public string Cep { get; set; }
 
-        [Display(Name = "Dia de Pagamento *")]
+        [Display(Name = "Dia de Pagamento")]
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
         public int DiadePagamento { get; set; }
         public IList<AlunosModalidades> Modalidades { get; set; } = new List<AlunosModalidades>();

@@ -68,6 +68,7 @@ namespace Aplicacao_Kolping.Services
         {
             return await _context.Alunos.Include(m => m.Modalidades).ThenInclude(m => m.Modalidade).FirstOrDefaultAsync(obj => obj.ID == id);
         }
+       
 
         public async Task RemoveAsync(int id)
         {
@@ -75,6 +76,7 @@ namespace Aplicacao_Kolping.Services
             _context.Alunos.Remove(obj);
             await _context.SaveChangesAsync();
         }
+
 
         public async Task UpdateAsync(AlunosFormViewModel obj)
         {
@@ -121,6 +123,11 @@ namespace Aplicacao_Kolping.Services
             }
         }
 
-
+        public int PesquisaPagamento (int id)
+        {
+            var pagamento = _context.Pagamentos.Find(id);
+            int retorno = pagamento.IdAluno;
+            return retorno;
+        }
     }
 }

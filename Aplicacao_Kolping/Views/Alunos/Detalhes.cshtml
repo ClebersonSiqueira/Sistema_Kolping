@@ -6,11 +6,16 @@
 
 <h2>@ViewData["Title"]</h2>
 
-
 <div>
     <h4>Aluno</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
@@ -82,7 +87,7 @@
         </dt>
         @foreach (var modalidade in Model.Modalidades)
         {
-            
+
             <dd>
                 <b>@modalidade.Modalidade.Name</b>
             </dd>
@@ -97,10 +102,10 @@
     @if (Model.ID >= 0)
     {
         <input type="hidden" id="@Model.ID" name="@Model.ID" value="@Model.ID">
-        <a asp-action="Pagamento" asp-route-id="@Model.ID">Deletar Pagamento</a>
+        <a asp-action="Pagamento" asp-route-id="@Model.ID">Adicionar Pagamento</a>
         <hr />
     }
-    </div>
+</div>
 <div>
     <dl>
         <dt>
@@ -117,10 +122,9 @@
                     <b>Pagamento numero @numeropagamento</b>
                 </dd>
                 <dd>
-                    Pagamento de codigo @pagamento.IdPagamento
+                    @pagamento.DataPagamento
                 </dd>
                 <dd>
-                    @pagamento.DataPagamento
                     <input type="hidden" id="IdPagamento" name="IdPagamento" value="@Model.Pagamentos.LastOrDefault().IdPagamento">
                     <a asp-action="DeletaPagamento" asp-route-id="@pagamento.IdPagamento">Deletar Pagamento</a>
                     <hr />
