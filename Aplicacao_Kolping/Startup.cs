@@ -61,6 +61,7 @@ namespace Aplicacao_Kolping
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService, Aplicacao_KolpingContext context)
         {
+            context.Database.EnsureCreated();
 
             var ptBR = new CultureInfo("pt-BR");
             var localizationOptions = new RequestLocalizationOptions

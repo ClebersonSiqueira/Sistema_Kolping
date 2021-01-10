@@ -80,20 +80,38 @@
             @Html.DisplayNameFor(model => model.DiadePagamento)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.DiadePagamento)
+            @Html.DisplayFor(model => model.DiadePagamento)<p><p>
         </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Modalidades)
         </dt>
-        @foreach (var modalidade in Model.Modalidades)
+        @if (Model.ID >= 0)
         {
+            double valorTotal = 0;
+            @foreach (var modalidade in Model.Modalidades)
+            {
 
+                <dd>
+                    <b>@modalidade.Modalidade.Name</b>
+                </dd>
+                <dd>
+                    @modalidade.Modalidade.Descricao<p>
+                </dd>
+                valorTotal = valorTotal + modalidade.Modalidade.Preco;
+
+            }
+
+
+            <dt>
+                Valor a ser Pago
+            </dt>
             <dd>
-                <b>@modalidade.Modalidade.Name</b>
+                @valorTotal,00
             </dd>
-            <dd>
-                @modalidade.Modalidade.Descricao
-            </dd>
+
+
+
         }
 
     </dl>
@@ -123,6 +141,12 @@
                 </dd>
                 <dd>
                     @pagamento.DataPagamento
+                </dd>
+                <dt>
+                    <b>Valor do Pagamento: </b>
+                </dt>
+                <dd>
+                    @pagamento.ValorPago,00
                 </dd>
                 <dd>
                     <input type="hidden" id="IdPagamento" name="IdPagamento" value="@Model.Pagamentos.LastOrDefault().IdPagamento">

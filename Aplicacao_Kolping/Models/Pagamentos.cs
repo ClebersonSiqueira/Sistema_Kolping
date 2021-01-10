@@ -10,17 +10,19 @@ namespace Aplicacao_Kolping.Models
         public int IdPagamento { get; set; }
         public int IdAluno { get; set; }
         public DateTime DataPagamento { get; set; }
+        public double ValorPago { get; set; }
         public Alunos Aluno { get; set; }
 
         public Pagamentos()
         {
         }
 
-        public Pagamentos(int idAluno, int idPagamento, DateTime dataPagamento)
+        public Pagamentos(int idAluno, int idPagamento, DateTime dataPagamento, double ValorPago)
         {
             IdAluno = idAluno;
             IdPagamento = idPagamento;
             DataPagamento = dataPagamento;
+            this.ValorPago = ValorPago;
         }
     }
 }

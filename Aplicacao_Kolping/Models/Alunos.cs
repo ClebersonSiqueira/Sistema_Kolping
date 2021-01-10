@@ -18,7 +18,7 @@ namespace Aplicacao_Kolping.Models
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
         [Display(Name = "Data de Nascimento")]
         public DateTime Nascimento { get; set; }
-        public int Telefone { get; set; }
+        public long Telefone { get; set; }
 
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }

@@ -3,14 +3,16 @@ using System;
 using Aplicacao_Kolping.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Aplicacao_Kolping.Migrations
 {
     [DbContext(typeof(Aplicacao_KolpingContext))]
-    partial class Aplicacao_KolpingContextModelSnapshot : ModelSnapshot
+    [Migration("20210110042021_AlteracaoDoTipoTelefone")]
+    partial class AlteracaoDoTipoTelefone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -109,10 +109,15 @@ namespace Aplicacao_Kolping.Services
 
         
         
-            public async Task AdicionaPagamentoAsync(int Id)
+            public async Task AdicionaPagamentoAsync(Alunos aluno)
         {
             {
-                Pagamentos pagamento = new Pagamentos { DataPagamento = DateTime.Now, IdAluno = Id };
+                double valorTotal = 0;
+                foreach(var modalidade in aluno.Modalidades)
+                {
+                    valorTotal += modalidade.Modalidade.Preco;
+                }
+                Pagamentos pagamento = new Pagamentos { DataPagamento = DateTime.Now, IdAluno = aluno.ID, ValorPago =  valorTotal};
                 _context.Pagamentos.Add(pagamento);
                 await _context.SaveChangesAsync();
             }
