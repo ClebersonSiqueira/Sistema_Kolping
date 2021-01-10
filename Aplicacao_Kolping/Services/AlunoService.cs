@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Aplicacao_Kolping.Data;
+using Aplicacao_Kolping.Models;
+using Aplicacao_Kolping.Services.Exceptions;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Aplicacao_Kolping.Data;
-using Aplicacao_Kolping.Models;
-using Microsoft.EntityFrameworkCore;
-using Aplicacao_Kolping.Services.Exceptions;
-using AutoMapper;
 
 namespace Aplicacao_Kolping.Services
 {
@@ -113,11 +113,15 @@ namespace Aplicacao_Kolping.Services
         {
             {
                 double valorTotal = 0;
+                string nomesAulas = "";
                 foreach(var modalidade in aluno.Modalidades)
                 {
                     valorTotal += modalidade.Modalidade.Preco;
+                    nomesAulas += " - ";
+                    nomesAulas = nomesAulas + modalidade.Modalidade.Name;
+                    
                 }
-                Pagamentos pagamento = new Pagamentos { DataPagamento = DateTime.Now, IdAluno = aluno.ID, ValorPago =  valorTotal};
+                Pagamentos pagamento = new Pagamentos { DataPagamento = DateTime.Now, IdAluno = aluno.ID, ValorPago =  valorTotal, AulasPagas = nomesAulas};
                 _context.Pagamentos.Add(pagamento);
                 await _context.SaveChangesAsync();
             }

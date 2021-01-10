@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 
+
 namespace Aplicacao_Kolping.Models
 {
     public class Modalidades
     {
+        
         public int ID { get; set; }
 
         [Required(ErrorMessage = "{0} Campo Obrigatório")]
@@ -21,6 +23,8 @@ namespace Aplicacao_Kolping.Models
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
+
+        [Display(Name = "Nomes:")]
         public IList<AlunosModalidades> Alunos { get; set; } = new List<AlunosModalidades>();
 
         public Modalidades()

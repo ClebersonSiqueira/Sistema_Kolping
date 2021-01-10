@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Aplicacao_Kolping.Data;
 using Aplicacao_Kolping.Models;
+using Aplicacao_Kolping.Services;
 
 namespace Aplicacao_Kolping.Controllers
 {
@@ -34,12 +35,13 @@ namespace Aplicacao_Kolping.Controllers
             }
 
             var modalidades = await _context.Modalidades
+                .Include(a => a.Alunos)
+                .ThenInclude(m => m.Aluno)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (modalidades == null)
             {
                 return NotFound();
             }
-
             return View(modalidades);
         }
 

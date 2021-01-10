@@ -91,7 +91,6 @@
             double valorTotal = 0;
             @foreach (var modalidade in Model.Modalidades)
             {
-
                 <dd>
                     <b>@modalidade.Modalidade.Name</b>
                 </dd>
@@ -99,19 +98,13 @@
                     @modalidade.Modalidade.Descricao<p>
                 </dd>
                 valorTotal = valorTotal + modalidade.Modalidade.Preco;
-
             }
-
-
             <dt>
                 Valor a ser Pago
             </dt>
             <dd>
                 @valorTotal,00
             </dd>
-
-
-
         }
 
     </dl>
@@ -129,6 +122,9 @@
         <dt>
             @Html.DisplayNameFor(model => model.Pagamentos):
         </dt>
+    </dl>
+    <p>
+    <dl>
         @if (Model.ID >= 0)
         {
             int numeropagamento = 0;
@@ -147,6 +143,12 @@
                 </dt>
                 <dd>
                     @pagamento.ValorPago,00
+                </dd>
+                <dt>
+                    <b>Valor referente as aulas:</b>
+                </dt>
+                <dd>
+                    @pagamento.AulasPagas
                 </dd>
                 <dd>
                     <input type="hidden" id="IdPagamento" name="IdPagamento" value="@Model.Pagamentos.LastOrDefault().IdPagamento">

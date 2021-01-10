@@ -1,10 +1,10 @@
 ﻿@model Aplicacao_Kolping.Models.Modalidades
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
 }
 
-<h2>Details</h2>
+<h2>@ViewData["Title"]</h2>
 
 <div>
     <h4>Modalidades</h4>
@@ -26,11 +26,40 @@
             @Html.DisplayNameFor(model => model.Descricao)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Descricao)
+            @Html.DisplayFor(model => model.Descricao)<p><p>
         </dd>
+        @if (Model.ID > 0)
+        {
+            int TotalAlunos = 0;
+            double TotalValor = 0;
+            foreach (var aluno in Model.Alunos)
+            {
+                TotalAlunos++;
+                TotalValor += Model.Preco;
+            }
+            <dt>
+                Alunos:
+            </dt>
+            <dd>
+                @TotalAlunos
+            </dd>
+        }
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <dl>
+        <dd>
+            <b>@Html.DisplayNameFor(model => model.Alunos)</b><p>
+        </dd>
+        @foreach (var aluno in Model.Alunos)
+        {
+            <dd>
+                @aluno.Aluno.Nome
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Editar Modalidade</a> |
     <a asp-action="Index">Voltar para a lista</a>
 </div>
