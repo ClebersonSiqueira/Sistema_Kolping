@@ -10,6 +10,15 @@
     <a asp-action="NovoAluno" class="btn btn-default">Novo Aluno</a>
 </p>
 
+<form asp-controller="Alunos" asp-action="Index" method="get">
+    <p>
+        <input type="text" class="col-md-4" name="Busca" />
+        <input type="submit" value="Pesquisar" />
+    </p>
+</form>
+
+
+
 <table class="table">
     <thead>
         <tr class="success">
@@ -34,28 +43,26 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Documento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nascimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiadePagamento)
-            </td>
-            <td>
-                <a asp-action="Editar" asp-route-id="@item.ID">Editar</a>
-                <a asp-action="Detalhes" asp-route-id="@item.ID">Detalhes</a>
-                <a asp-action="Deletar" asp-route-id="@item.ID">Deletar</a>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Documento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiadePagamento)
+                </td>
+                <td>
+                    <a asp-action="Detalhes" asp-route-id="@item.ID">Detalhes</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>

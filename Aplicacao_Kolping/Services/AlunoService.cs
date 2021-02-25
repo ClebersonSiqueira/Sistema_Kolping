@@ -25,6 +25,12 @@ namespace Aplicacao_Kolping.Services
         {
             return await _context.Alunos.ToListAsync();
         }
+
+        public async Task<List<Alunos>> FindAluno(string nome)
+        {
+            return await _context.Alunos.Where(a => a.Nome.Contains(nome)).ToListAsync();
+        }
+
         public async Task Insert(AlunosFormViewModel obj)
         {
             Alunos aluno = _mapper.Map<Alunos>(obj);

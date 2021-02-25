@@ -37,12 +37,6 @@
             @Html.DisplayFor(model => model.Telefone)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Rua)
         </dt>
         <dd>
@@ -67,12 +61,6 @@
             @Html.DisplayFor(model => model.Cidade)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Cep)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cep)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.DiadePagamento)
         </dt>
         <dd>
@@ -81,7 +69,7 @@
     </dl>
     <form asp-action="Deletar">
         <input type="hidden" asp-form="ID" />
-        <input type="submit" value="Deletar" class="btn btn-danger" />
-        <a asp-action="Index">Voltar para a lista</a>
+        <input type="submit" value="Deletar" />
+        <a asp-action="Detalhes" asp-route-id="@Model.ID">| Voltar </a>
     </form>
 </div>

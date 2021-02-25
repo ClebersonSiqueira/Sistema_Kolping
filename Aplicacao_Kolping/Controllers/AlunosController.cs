@@ -26,9 +26,13 @@ namespace Aplicacao_Kolping.Controllers
             _mapper = mapper;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string busca)
         {
             var list = await _AlunoService.FindAllAsync();
+            if (!String.IsNullOrEmpty(busca))
+            {
+                list = await _AlunoService.FindAluno(busca);
+            } 
             return View(list);
         }
 

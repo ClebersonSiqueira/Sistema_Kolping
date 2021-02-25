@@ -41,12 +41,6 @@
             @Html.DisplayFor(model => model.Telefone)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt>
             @Html.DisplayNameFor(model => model.Rua)
         </dt>
         <dd>
@@ -69,12 +63,6 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Cidade)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Cep)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cep)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.DiadePagamento)
@@ -164,8 +152,9 @@
 <hr />
 <hr />
 <div>
-    <a asp-action="Editar" asp-route-id="@Model.ID">Editar Aluno    |</a>
-    <a asp-action="Index">|    Voltar para a lista</a>
+    <a asp-action="Editar" asp-route-id="@Model.ID">Editar Aluno |</a>
+    <a asp-action="Deletar" asp-route-id="@Model.ID">| Deletar |</a>
+    <a asp-action="Index">| Voltar para a lista</a>
 
     <hr />
 </div>

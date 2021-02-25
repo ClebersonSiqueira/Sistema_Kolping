@@ -65,12 +65,6 @@ namespace Aplicacao_Kolping.Models
             {
                 Modalidades.Remove(modalidade);
             }
-        }
-        public void AddPagamento(Pagamentos pg)
-        {
-            Pagamentos.Add(new Pagamentos { IdPagamento = pg.IdPagamento, IdAluno = ID, DataPagamento = pg.DataPagamento });
-        }
-
-        
+        }        
     }
 }
