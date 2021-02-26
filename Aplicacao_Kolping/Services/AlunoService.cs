@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Aplicacao_Kolping.Models.Enums;
 
 namespace Aplicacao_Kolping.Services
 {
@@ -23,7 +24,11 @@ namespace Aplicacao_Kolping.Services
 
         public async Task<List<Alunos>> FindAllAsync()
         {
-            return await _context.Alunos.ToListAsync();
+            return await _context.Alunos
+                .Include(p => p.Pagamentos)
+                .Include(m => m.Modalidades)
+                .ThenInclude(m => m.Modalidade)
+                .ToListAsync();
         }
 
         public async Task<List<Alunos>> FindAluno(string nome)
